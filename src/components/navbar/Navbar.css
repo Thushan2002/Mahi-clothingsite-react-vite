@@ -1,3 +1,9 @@
+.custom-link {
+    text-decoration: none;
+    color: inherit;
+    /* or any color you prefer */
+}
+
 .navbar {
     display: flex;
     justify-content: space-around;
