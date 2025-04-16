@@ -1,0 +1,124 @@
+.productDisplay {
+    display: flex;
+    margin: 0px 170px;
+}
+
+.productDisplay-left {
+    display: flex;
+    gap: 17px;
+}
+
+.productDisplay-img-list {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.productDisplay-img-list img {
+    height: 163px;
+}
+
+.productDisplay-main-img {
+    width: 586px;
+    height: 700px;
+}
+
+.productDisplay-right {
+    margin: 0px 70px;
+    display: flex;
+    flex-direction: column;
+}
+
+.productDisplay-right h1 {
+    color: #3d3d3d;
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.productDisplay-right-stars {
+    display: flex;
+    align-items: center;
+    margin-top: 12px;
+    gap: 5px;
+    color: #1c1c1c;
+}
+
+.productDisplay-right-prices {
+    display: flex;
+    margin: 20px 0px;
+    gap: 30px;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.productDisplay-right-price-old {
+    color: #818181;
+    text-decoration: line-through;
+}
+
+.productDisplay-right-price-new {
+    color: #ff4141;
+}
+
+.productDisplay-right-description {
+    font-size: clamp(1rem, 1.2vw, 2.2rem);
+    color: #818181;
+}
+
+.productDisplay-right-size {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 0px;
+}
+
+.productDisplay-right-size h1 {
+    font-size: clamp(1rem, 2.2vw, 2.2rem);
+}
+
+.productDisplay-right-size-select {
+    display: flex;
+    width: 50%;
+    margin: 10px 0px;
+    align-items: center;
+    justify-content: space-between;
+    gap: 5px;
+}
+
+.productDisplay-right-size-select div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20%;
+    padding: 2px;
+    border: 1px solid #3d3d3d;
+    border-radius: 10px;
+}
+
+.productDisplay-right-size-select div:hover {
+    color: white;
+    background: #ff4141;
+    border: 1px solid white;
+}
+
+.productDisplay-right button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    font-size: 16px;
+    font-weight: 600;
+    color: white;
+    background: #ff4141;
+    margin-bottom: 40px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.productDisplay-right-category {
+    margin-top: 10px;
+}
+
+.productDisplay-right-category span {
+    font-weight: 600;
+}
