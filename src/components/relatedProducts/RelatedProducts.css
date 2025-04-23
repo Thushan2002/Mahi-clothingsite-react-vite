@@ -1,0 +1,27 @@
+.relatedproducts {
+    padding: 40px 60px;
+    background-color: #f9f9f9;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.relatedproducts h1 {
+    font-size: 28px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.relatedproducts hr {
+    height: 3px;
+    width: 100px;
+    background-color: #e02b57;
+    border: none;
+    margin-bottom: 30px;
+}
+
+.relatedproducts-item {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+    justify-content: center;
+}
