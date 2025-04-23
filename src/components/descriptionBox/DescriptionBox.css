@@ -1,0 +1,42 @@
+.descriptionbox {
+    width: 100%;
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 1rem;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.descriptionbox-navigator {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid #e0e0e0;
+}
+
+.descriptionbox-nav-box {
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    border-bottom: 3px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.descriptionbox-nav-box:hover {
+    color: #007bff;
+    border-bottom: 3px solid #007bff;
+}
+
+.descriptionbox-nav-box.fade {
+    color: #888;
+}
+
+.descriptionbox-description {
+    padding: 1rem 0;
+    color: #444;
+    font-size: 1rem;
+    line-height: 1.6;
+}
