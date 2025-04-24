@@ -2,33 +2,38 @@
     width: 100%;
     max-width: 350px;
     flex: 1 1 250px;
-    /* Allow it to shrink/grow nicely */
     box-sizing: border-box;
     transition: transform 0.3s ease;
-    /* smooth on all devices */
+    margin: 0 auto;
+    text-align: center;
 }
 
 .item:hover {
     transform: scale(1.05);
 }
 
+.item img {
+    width: 100%;
+    height: auto;
+    max-height: 300px;
+    object-fit: contain;
+}
+
 .item p {
     margin: 6px 0;
     font-size: clamp(0.9rem, 2vw, 1.1rem);
-    /* scales with screen */
 }
 
 .item-prices {
     display: flex;
     gap: 20px;
     flex-wrap: wrap;
-    /* prevent prices from overflowing */
+    justify-content: center;
 }
 
 .new-price {
     color: #374151;
     font-size: clamp(1rem, 1.8vw, 1.125rem);
-    /* 16px to 18px */
     font-weight: 600;
 }
 
@@ -37,4 +42,12 @@
     font-size: clamp(1rem, 1.8vw, 1.125rem);
     font-weight: 500;
     text-decoration: line-through;
+}
+
+/* Optional: Responsive grid container usage */
+.item-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
 }
