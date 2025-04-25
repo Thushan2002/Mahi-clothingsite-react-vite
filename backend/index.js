@@ -34,3 +34,27 @@ app.listen(port, (error) => {
 
     }
 });
+
+// image Storage engine
+
+const storage = multer.diskStorage({
+    destination: './upload/images',
+    filename: (req, file, cb) => {
+        return cb(null, `${file.fieldname}_${Date.now()}${path.extname(file.originalname)}`)
+    }
+})
+
+const upload = multer({ storage: storage })
+
+// Creating upload endpoint for images  
+
+app.use('/images', express.static('upload/images'))
+
+app.post("/upload", upload.single('product'), (req, res) => {
+    res.json({
+        successful: 1,
+        image_url: `http://localhost:${process.env.PORT || 5000}/images/${req.file.filename}`
+    })
+})
+
+
