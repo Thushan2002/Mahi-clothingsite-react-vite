@@ -1,4 +1,3 @@
-
 const express = require("express")
 const app = express()
 const mongoose = require("mongoose")
@@ -6,6 +5,8 @@ const cors = require("cors")
 const path = require("path")
 const multer = require("multer")
 const jwt = require("jsonwebtoken")
+require('dotenv').config();
+
 const { log } = require("console")
 const { type } = require("os")
 
@@ -25,6 +26,11 @@ mongoose.connect(process.env.MONGO_URI, {
 app.get('/', (req, res) => {
     res.send('Hello from Atlas-connected server!');
 });
+
+// Middleware to parse JSON request bodies
+
+app.use(express.json());
+
 
 app.listen(port, (error) => {
     if (!error) {
@@ -96,8 +102,18 @@ const Product = mongoose.model("Product", {
 })
 
 app.post("/addproduct", async (req, res) => {
+    let products = await Product.find({})
+    let id;
+    if (products.length > 0) {
+        let last_product_array = products.slice(-1)
+        let last_product = last_product_array[0]
+        id = last_product.id + 1
+    }
+    else {
+        id = 1
+    }
     const product = new Product({
-        id: req.body.id,
+        id: id,
         name: req.body.name,
         image: req.body.image,
         category: req.body.category,
