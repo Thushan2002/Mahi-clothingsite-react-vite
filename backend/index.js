@@ -5,7 +5,7 @@ const cors = require("cors")
 const path = require("path")
 const multer = require("multer")
 const jwt = require("jsonwebtoken")
-require('dotenv').config();
+require('dotenv').config({ path: "../.env" });
 
 const { log } = require("console")
 const { type } = require("os")
@@ -61,7 +61,7 @@ app.use('/images', express.static('upload/images'))
 
 app.post("/upload", upload.single('product'), (req, res) => {
     res.json({
-        successful: 1,
+        success: 1,
         image_url: `http://localhost:${process.env.PORT || 5000}/images/${req.file.filename}`
     })
 })
