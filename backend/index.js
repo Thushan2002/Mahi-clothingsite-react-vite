@@ -21,6 +21,8 @@ mongoose.connect(process.env.MONGO_URI, {
     .then(() => console.log('Connected to MongoDB Atlas'))
     .catch((err) => console.error('MongoDB Connection Error:', err));
 
+app.use(cors());
+
 // API Creation
 
 app.get('/', (req, res) => {
@@ -127,6 +129,16 @@ app.post("/addproduct", async (req, res) => {
     })
 })
 
+// all products
+app.get("/allproducts", async (req, res) => {
+    try {
+        const products = await Product.find({});
+        res.json(products);
+    } catch (err) {
+        res.status(500).json({ error: "Failed to fetch products" });
+    }
+});
+
 // creating API for deleting products
 
 app.post('/removeproduct', async (req, res) => {
@@ -137,3 +149,4 @@ app.post('/removeproduct', async (req, res) => {
         name: req.body.name
     })
 })
+
