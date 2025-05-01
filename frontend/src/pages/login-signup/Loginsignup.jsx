@@ -3,6 +3,40 @@ import "./Loginsignup.css";
 
 const Loginsignup = () => {
   const [state, setState] = useState("Login");
+  const [formData, setFormData] = useState({
+    username: "",
+    password: "",
+    email: "",
+  });
+
+  const changeHandler = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const login = async () => {
+    console.log("login", formData);
+  };
+
+  const signUp = async () => {
+    console.log("signup", formData);
+    let responseData;
+    await fetch("http://localhost:5000/signup", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+      },
+      body: JSON.stringify(formData),
+    })
+      .then((resp) => resp.json())
+      .then((data) => (responseData = data));
+
+    if (responseData.success) {
+      localStorage.setItem("auth-token", responseData.token);
+      window.location.replace("/");
+    } else {
+      alert(responseData.errors);
+    }
+  };
 
   return (
     <div className="loginSignup">
@@ -10,12 +44,32 @@ const Loginsignup = () => {
         <h1>{state}</h1>
         <div className="loginSignup-fields">
           {state === "Sign Up" ? (
-            <input type="text" placeholder="Your Name" />
+            <input
+              type="text"
+              placeholder="Your Name"
+              name="username"
+              value={formData.username}
+              onChange={changeHandler}
+            />
           ) : null}
-          <input type="text" placeholder="Your Email" />
-          <input type="text" placeholder="Your Password" />
+          <input
+            name="email"
+            value={formData.email}
+            onChange={changeHandler}
+            type="text"
+            placeholder="Your Email"
+          />
+          <input
+            type="text"
+            placeholder="Your Password"
+            name="password"
+            value={formData.password}
+            onChange={changeHandler}
+          />
         </div>
-        <button>{state === "Sign Up" ? "Sign Up" : "Log In"}</button>
+        <button onClick={state === "Sign Up" ? () => signUp() : () => login()}>
+          {state === "Sign Up" ? "Sign Up" : "Log In"}
+        </button>
         {state === "Sign Up" ? (
           <p className="loginSignup-login">
             Already have an account?{" "}
