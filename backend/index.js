@@ -7,7 +7,7 @@ const multer = require("multer")
 const jwt = require("jsonwebtoken")
 require('dotenv').config({ path: "../.env" });
 
-const { log } = require("console")
+const { log, error } = require("console")
 const { type } = require("os")
 
 const port = process.env.PORT || 5000;
@@ -208,5 +208,37 @@ app.post("/signup", async (req, res) => {
         success: true,
         token
     })
+})
+
+// user login
+
+app.post('/login', async (req, res) => {
+    let user = await Users.findOne({ email: req.body.email })
+
+    if (user) {
+        const passCompare = req.body.password === user.password
+        if (passCompare) {
+            const data = {
+                user: {
+                    id: user.id
+                }
+            }
+            const token = jwt.sign(data, "secret_ecom")
+            res.json({
+                success: true,
+                token
+            })
+        } else {
+            res.json({
+                success: false,
+                errors: "Wrong password"
+            })
+        }
+    } else {
+        res.json({
+            success: false,
+            errors: "Wrong Email Id"
+        })
+    }
 })
 
