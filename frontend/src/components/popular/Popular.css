@@ -26,9 +26,11 @@
 
 .popular-items {
     margin-top: 50px;
-    display: flex;
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(5, 1fr);
     flex-wrap: wrap;
-    justify-content: center;
+
     gap: 30px;
     width: 100%;
 }

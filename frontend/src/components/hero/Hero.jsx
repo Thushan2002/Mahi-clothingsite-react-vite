@@ -1,29 +1,41 @@
 import React from "react";
 import "./Hero.css";
-import hand_icon from "../../assets/Frontend_Assets/hand_icon.png";
 import arrow_icon from "../../assets/Frontend_Assets/arrow.png";
-import hero_image from "../../assets/Frontend_Assets/hero_image.png";
+import hero_image from "../../assets/Frontend_Assets/hero_img.png";
 
 const Hero = () => {
   return (
     <div className="hero">
-      <div className="hero-left">
-        <h2>New Arrivals Only</h2>
-        <div>
-          <div className="hero-hand-icon">
-            <p>new</p>
-            <img src={hand_icon} alt="" />
+      <div className="hero-content">
+        <div className="hero-text">
+          <div className="hand-icon-container">
+            <p>Welcome to</p>
           </div>
-          <p>Collections</p>
-          <p>For Everyone</p>
+          <h1>THE LATEST COLLECTION</h1>
+          <p className="hero-description">
+            Discover amazing products at unbeatable prices. Shop now and
+            experience the difference.
+          </p>
+          <div className="hero-cta">
+            <button className="hero-btn">
+              Shop Now
+              <img src={arrow_icon} alt="Arrow" className="arrow-icon" />
+            </button>
+            <div className="hero-stats">
+              <div className="stat">
+                <span className="stat-number">200+</span>
+                <span className="stat-label">Brands</span>
+              </div>
+              <div className="stat">
+                <span className="stat-number">2000+</span>
+                <span className="stat-label">Products</span>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="hero-latest-btn">
-          <div>Latest Collection</div>
-          <img src={arrow_icon} alt="" />
+        <div className="hero-image-container">
+          <img src={hero_image} alt="Hero" className="hero-image" />
         </div>
-      </div>
-      <div className="hero-right">
-        <img src={hero_image} alt="" />
       </div>
     </div>
   );
