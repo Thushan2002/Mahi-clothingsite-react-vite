@@ -2,12 +2,12 @@ import React from "react";
 import "./Popular.css";
 import product_data from "../../assets/Frontend_Assets/data";
 import Item from "../item/Item";
+import Title from "../title/Title";
 
 const Popular = () => {
   return (
     <div className="popular">
-      <h1>POPULAR IN WOMEN</h1>
-      <hr />
+      <Title title={"POPULAR"} size={"lg"} />
       <div className="popular-items">
         {product_data.map((item, id) => {
           return (
