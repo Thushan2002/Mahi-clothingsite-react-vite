@@ -1,0 +1,30 @@
+.title {
+    opacity: .7;
+    text-shadow: 1px 1px 4px black;
+    position: relative;
+}
+
+.title::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 5px;
+    width: 150px;
+    background-color: black;
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.small {
+    font-size: 1rem;
+}
+
+.medium {
+    font-size: 2rem;
+}
+
+.large {
+    font-size: 3rem;
+}
