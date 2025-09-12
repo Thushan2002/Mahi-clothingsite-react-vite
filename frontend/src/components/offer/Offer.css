@@ -1,69 +1,265 @@
+/* Offer.css */
+.offer-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
 .offer {
-    width: 90%;
-    min-height: 60vh;
+    width: 100%;
+    max-width: 1200px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1), 0 10px 20px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+.offer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 100%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    transform: rotate(30deg);
+}
+
+.offer-content {
     display: flex;
     align-items: center;
-    justify-content: space-around;
-    padding: 40px clamp(20px, 8vw, 140px);
-    margin: 150px auto;
-    background: linear-gradient(180deg, #fde1ff 0%, #e1ffea22 60%);
-    gap: 40px;
-    flex-wrap: wrap;
+    padding: 60px;
+    gap: 60px;
+    position: relative;
+    z-index: 1;
 }
 
 .offer-left {
-    flex: 1 1 300px;
+    flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    gap: 20px;
+    gap: 24px;
+}
+
+.offer-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 8px 16px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    width: fit-content;
+}
+
+.badge-icon {
+    font-size: 16px;
 }
 
 .offer-left h1 {
-    color: #171717;
-    font-size: clamp(1.5rem, 4vw, 4.5rem);
-    font-weight: 600;
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #2D2D2D;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.offer-left h1:first-of-type {
+    background: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
 }
 
 .offer-left p {
-    color: #171717;
-    font-size: clamp(1rem, 2vw, 1.5rem);
-    font-weight: 400;
-}
-
-.offer-left button {
-    display: flex;
-    border: none;
-    outline: none;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
-    width: clamp(200px, 60%, 310px);
-    height: clamp(50px, 10vw, 70px);
-    border-radius: 75px;
-    margin-top: 30px;
-    background: #ff4141;
-    color: white;
-    font-size: clamp(1rem, 1.8vw, 22px);
+    color: #4A5568;
+    font-size: 1.1rem;
     font-weight: 500;
-    cursor: pointer;
-    transition: transform 0.2s, background 0.2s;
+    letter-spacing: 1px;
+    margin-top: 8px;
 }
 
-.offer-left button:hover {
-    background: #c03f3f;
-    transform: scale(0.95);
+.offer-features {
+    list-style: none;
+    padding: 0;
+    margin: 16px 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.offer-features li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #2D3748;
+    font-weight: 500;
+}
+
+.offer-features li svg {
+    color: #48BB78;
+    font-size: 18px;
+}
+
+.offer-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+    color: white;
+    border: none;
+    padding: 18px 32px;
+    border-radius: 50px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(37, 117, 252, 0.3);
+    margin-top: 16px;
+    width: fit-content;
+}
+
+.offer-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 25px rgba(37, 117, 252, 0.4);
+}
+
+.offer-button:active {
+    transform: translateY(0);
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+.offer-button:hover .arrow-icon {
+    transform: translateX(5px);
 }
 
 .offer-right {
-    flex: 1 1 300px;
+    flex: 1;
     display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
 }
 
 .offer-right img {
     width: 100%;
-    max-width: 450px;
+    max-width: 400px;
     height: auto;
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.2));
+    transform: perspective(1000px) rotateY(-5deg);
+    transition: transform 0.5s ease;
+}
+
+.offer-right img:hover {
+    transform: perspective(1000px) rotateY(0);
+}
+
+.floating-discount {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #FF416C 0%, #FF4B2B 100%);
+    color: white;
+    padding: 16px;
+    border-radius: 50%;
+    width: 90px;
+    height: 90px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(255, 75, 43, 0.3);
+    animation: pulse 2s infinite;
+}
+
+.floating-discount span:first-child {
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.discount-percent {
+    font-size: 18px;
+    font-weight: 800;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive design */
+@media (max-width: 968px) {
+    .offer-content {
+        flex-direction: column;
+        text-align: center;
+        padding: 40px 30px;
+        gap: 40px;
+    }
+
+    .offer-left {
+        align-items: center;
+    }
+
+    .offer-left h1 {
+        font-size: 2.5rem;
+    }
+
+    .offer-right img {
+        max-width: 300px;
+        transform: none;
+    }
+
+    .offer-right img:hover {
+        transform: scale(1.05);
+    }
+}
+
+@media (max-width: 480px) {
+    .offer-content {
+        padding: 30px 20px;
+    }
+
+    .offer-left h1 {
+        font-size: 2rem;
+    }
+
+    .offer-features li {
+        font-size: 0.9rem;
+    }
+
+    .offer-button {
+        padding: 14px 24px;
+        font-size: 1rem;
+    }
+
+    .floating-discount {
+        width: 70px;
+        height: 70px;
+    }
+
+    .discount-percent {
+        font-size: 14px;
+    }
 }
