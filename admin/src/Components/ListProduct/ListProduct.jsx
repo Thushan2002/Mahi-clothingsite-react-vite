@@ -6,10 +6,12 @@ const ListProduct = () => {
   const [allProducts, setAllProducts] = useState([]);
 
   const fetchInfo = async () => {
-    await fetch("http://localhost:5000/allproducts")
+    await fetch("http://localhost:5000/api/product/allproducts")
       .then((res) => res.json())
       .then((data) => {
-        setAllProducts(data);
+        console.log("data", data);
+
+        setAllProducts(data.products);
       });
   };
 
@@ -18,8 +20,8 @@ const ListProduct = () => {
   }, []);
 
   const remove_product = async (id) => {
-    await fetch("http://localhost:5000/removeproduct", {
-      method: "POST",
+    await fetch("http://localhost:5000/api/product/removeproduct", {
+      method: "DELETE",
       headers: {
         Accept: "application/json",
         "content-type": "application/json",
@@ -44,28 +46,25 @@ const ListProduct = () => {
         <hr />
         {allProducts.map((product, index) => {
           return (
-            <>
-              <div
-                key={index}
-                className="list-product_format-main list-product_format">
-                <img
-                  src={product.image}
-                  alt=""
-                  className="list-product_product-icon"
-                />
-                <p>{product.name}</p>
-                <p>${product.old_price}</p>
-                <p>${product.new_price}</p>
-                <p>{product.category}</p>
-                <img
-                  onClick={() => remove_product(product.id)}
-                  className="list-product_remove-icon"
-                  src={remove_icon}
-                  alt=""
-                />
-              </div>
-              <hr />
-            </>
+            <div
+              key={index}
+              className="list-product_format-main list-product_format">
+              <img
+                src={product.image}
+                alt=""
+                className="list-product_product-icon"
+              />
+              <p>{product.name}</p>
+              <p>${product.old_price}</p>
+              <p>${product.new_price}</p>
+              <p>{product.category}</p>
+              <img
+                onClick={() => remove_product(product.id)}
+                className="list-product_remove-icon"
+                src={remove_icon}
+                alt=""
+              />
+            </div>
           );
         })}
       </div>

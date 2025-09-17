@@ -65,14 +65,17 @@ const AddProduct = () => {
         new_price: Number(productDetails.new_price),
       };
 
-      const productResponse = await fetch("http://localhost:5000/addproduct", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-        body: JSON.stringify(product),
-      });
+      const productResponse = await fetch(
+        "http://localhost:5000/api/product/addproduct",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(product),
+        }
+      );
 
       const result = await productResponse.json();
 
