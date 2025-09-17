@@ -9,7 +9,7 @@
 }
 
 .nav-logo {
-    width: clamp(120px, 18vw, 220px);
+    width: 75px;
     height: auto;
 }
 
@@ -26,9 +26,9 @@
         padding: clamp(10px, 3vw, 20px) clamp(20px, 5vw, 50px);
     }
 
-    .nav-logo {
+    /* .nav-logo {
         width: clamp(100px, 20vw, 180px);
-    }
+    } */
 
     .nav-profile {
         width: clamp(35px, 9vw, 60px);
@@ -38,14 +38,13 @@
 /* Mobile view (small screens) */
 @media (max-width: 568px) {
     .navbar {
-        flex-direction: column;
         gap: clamp(8px, 2vw, 16px);
         padding: clamp(8px, 4vw, 16px) clamp(12px, 6vw, 24px);
         text-align: center;
     }
 
     .nav-logo {
-        width: clamp(90px, 30vw, 140px);
+        width: 50px;
     }
 
     .nav-profile {
@@ -59,9 +58,9 @@
         padding: clamp(6px, 5vw, 12px) clamp(8px, 8vw, 20px);
     }
 
-    .nav-logo {
+    /* .nav-logo {
         width: clamp(80px, 35vw, 120px);
-    }
+    } */
 
     .nav-profile {
         width: clamp(28px, 15vw, 45px);
